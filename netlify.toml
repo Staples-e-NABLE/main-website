@@ -1,5 +1,5 @@
 [build]
-  command = "npx drizzle-kit push && vite build"
+  command = "vite build"
   publish = "dist/client"
 
 [dev]
