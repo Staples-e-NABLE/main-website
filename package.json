@@ -1,5 +1,5 @@
 {
-  "name": "marketing",
+  "name": "staples-enable",
   "private": true,
   "type": "module",
   "scripts": {
@@ -36,14 +36,6 @@
     "tailwindcss": "4.2.2",
     "typescript": "5.9.3",
     "vite": "7.3.6"
-  }
-  {
-  "name": "staples-enable",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vinxi dev",
-    "build": "vinxi build"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -51,5 +43,4 @@
       "sharp"
     ]
   }
-}
 }
