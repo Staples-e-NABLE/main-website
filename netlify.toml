@@ -1,6 +1,7 @@
 [build]
-  command = "vite build"
+  command = "npx drizzle-kit push && vite build"
   publish = "dist/client"
+
 [dev]
   command = "npm run dev"
   targetPort = 3000
