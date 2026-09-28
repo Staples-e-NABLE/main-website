@@ -39,22 +39,19 @@ CREATE TABLE "requests" (
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
-
-
-
+--> statement-breakpoint
 CREATE TABLE "volunteers" (
-    "id" serial PRIMARY KEY,
-    "name" text NOT NULL,
-    "volunteer_status" text NOT NULL,
-    "school_email" text NOT NULL,
-    "home_email" text NOT NULL,
-    "phone_number" text DEFAULT '',
-    "grade" text DEFAULT '',
-    "experience" text DEFAULT '',
-    "intention" text NOT NULL,
-    "status" text DEFAULT 'new' NOT NULL,
-    "admin_notes" text DEFAULT '' NOT NULL,
-    "created_at" timestamp DEFAULT now() NOT NULL
+	"id" serial PRIMARY KEY,
+	"name" text NOT NULL,
+	"email" text NOT NULL,
+	"phone" text DEFAULT '' NOT NULL,
+	"role" text DEFAULT '' NOT NULL,
+	"has_printer" boolean DEFAULT false NOT NULL,
+	"skills" text DEFAULT '' NOT NULL,
+	"availability" text DEFAULT '' NOT NULL,
+	"status" text DEFAULT 'new' NOT NULL,
+	"admin_notes" text DEFAULT '' NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 ALTER TABLE "request_photos" ADD CONSTRAINT "request_photos_request_id_requests_id_fkey" FOREIGN KEY ("request_id") REFERENCES "requests"("id") ON DELETE CASCADE;
