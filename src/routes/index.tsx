@@ -4,6 +4,34 @@ export const Route = createFileRoute('/')({
   component: Home,
 })
 
+const DEVICES = [
+  {
+    id: '1',
+    title: '',
+    recipientFirstName: 'Shipped to Egypt',
+    
+    src: '/Focus and Targets (1).webp',
+    imgClass: 'object-cover',
+  },
+  {
+    id: '2',
+    
+    recipientFirstName: 'Shipped within the U.S.',
+    
+    src: '/Focus and Targets.webp',
+    imgClass: 'object-cover',
+  },
+  {
+    id: '3',
+    title: '',
+    recipientFirstName: 'Prototype Hand',
+    
+    src: '/IMG_7481.webp',
+    // Rotates 90 deg and scales down so the entire photo fits in frame
+    imgClass: 'rotate-90 object-contain scale-160', 
+  },
+]
+
 const STEPS = [
   {
     n: '01',
@@ -35,7 +63,7 @@ function Home() {
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:grid-cols-[1.1fr_0.9fr] md:px-8 md:py-28">
           <div className="rise">
             <span className="inline-flex items-center gap-2 rounded-full border border-[var(--teal)]/30 bg-white/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--teal)]">
-              A Staples High School Robotics Project
+              Staples High School
             </span>
             <h1 className="display mt-6 text-5xl font-semibold leading-[1.03] text-[var(--ink)] md:text-6xl">
               Free 3D-printed hands,
@@ -142,32 +170,41 @@ function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-20 md:px-8">
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--filament)]">Recently delivered</p>
-            <h2 className="display mt-3 text-3xl font-semibold md:text-4xl">A few of the devices we've sent home.</h2>
-            <p className="mt-4 leading-relaxed text-[var(--ink-soft)]">
-              Every device in our gallery was designed, printed, and hand-finished by Staples
-              students, then fitted at no cost to the recipient's family.
-            </p>
-            <Link
-              to="/gallery"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--teal)] hover:text-[var(--teal-dark)]"
-            >
-              View the full gallery →
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {['#e8632c', '#2c5f5a', '#cf9a2c', '#4a4f42'].map((color, i) => (
-              <div
-                key={color}
-                className={`aspect-square rounded-2xl ${i === 0 ? 'col-span-2' : ''}`}
-                style={{ background: `linear-gradient(140deg, ${color}22, ${color}55)`, border: `1px solid ${color}44` }}
-              />
-            ))}
-          </div>
-        </div>
+        
       </section>
+      {/* Featured Devices Section */}
+            <section className="border-t border-[var(--rule)] bg-[var(--paper-dim)] py-16">
+              <div className="mx-auto max-w-7xl px-5 md:px-8">
+                <div className="mb-8">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--filament)]">Featured Work</p>
+                  <h2 className="display mt-1 text-3xl font-semibold">Delivered Devices</h2>
+                </div>
+
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {DEVICES.map((d) => (
+                    <figure key={d.id} className="overflow-hidden rounded-2xl border border-[var(--rule)] bg-white/60">
+                      <div className="aspect-[4/3] w-full overflow-hidden bg-[var(--paper-dim)] flex items-center justify-center">
+                        <img
+                          src={d.src}
+                          alt={d.title}
+                          className={`h-full w-full ${d.imgClass}`}
+                          loading="lazy"
+                        />
+                      </div>
+                      <figcaption className="p-5">
+                        <p className="font-semibold">{d.title}</p>
+                        {d.recipientFirstName && (
+                          <p className="text-sm text-[var(--teal)]">For {d.recipientFirstName}</p>
+                        )}
+                        {d.description && (
+                          <p className="mt-1.5 text-sm leading-relaxed text-[var(--ink-soft)]">{d.description}</p>
+                        )}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </section>
     </div>
   )
 }

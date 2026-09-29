@@ -31,13 +31,17 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-[var(--rule)] bg-[var(--paper)]/90 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8">
         <Link to="/" className="flex items-center gap-3 shrink-0">
-          <Mark />
+          <img 
+    src="\image-removebg-preview(22).png" // e.g., /logo.svg or imported image
+    alt="Staples e-NABLE Logo" 
+    className="h-10 w-10 object-contain" // Adjust size as needed
+  />
           <span className="leading-tight">
             <span className="block font-semibold tracking-tight text-[var(--ink)]">
               Staples <span className="text-[var(--filament)]">e</span>-NABLE
             </span>
             <span className="block text-[10px] uppercase tracking-[0.18em] text-[var(--ink-soft)]">
-              Wreckers Robotics &middot; Westport, CT
+              Westport, CT
             </span>
           </span>
         </Link>

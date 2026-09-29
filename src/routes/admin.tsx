@@ -254,9 +254,11 @@ function VolunteersTab({ initial }: { initial: Awaited<ReturnType<typeof listVol
         <thead>
           <tr className="border-b border-[var(--rule)] text-left text-xs font-semibold uppercase tracking-wide text-[var(--ink-soft)]">
             <th className="px-4 py-3">Name</th>
+            <th className="px-4 py-3">Affiliation</th>
             <th className="px-4 py-3">Contact</th>
-            <th className="px-4 py-3">Role</th>
-            <th className="px-4 py-3">Printer</th>
+            <th className="px-4 py-3">Grade</th>
+            <th className="px-4 py-3">Intention</th>
+            <th className="px-4 py-3">Experience</th>
             <th className="px-4 py-3">Status</th>
             <th className="px-4 py-3" />
           </tr>
@@ -265,12 +267,15 @@ function VolunteersTab({ initial }: { initial: Awaited<ReturnType<typeof listVol
           {rows.map((row) => (
             <tr key={row.id} className="border-b border-[var(--rule)] last:border-0">
               <td className="px-4 py-3 font-medium">{row.name}</td>
+              <td className="px-4 py-3 text-[var(--ink-soft)]">{row.volunteerStatus || '—'}</td>
               <td className="px-4 py-3 text-[var(--ink-soft)]">
-                {row.email}
-                {row.phone && <div>{row.phone}</div>}
+                <div className="font-medium text-[var(--ink)]">{row.schoolEmail}</div>
+                {row.homeEmail && <div className="text-xs text-[var(--ink-soft)]">{row.homeEmail}</div>}
+                {row.phoneNumber && <div className="text-xs text-[var(--ink-soft)]">{row.phoneNumber}</div>}
               </td>
-              <td className="px-4 py-3 text-[var(--ink-soft)]">{row.role || '—'}</td>
-              <td className="px-4 py-3">{row.hasPrinter ? 'Yes' : 'No'}</td>
+              <td className="px-4 py-3 text-[var(--ink-soft)]">{row.grade || '—'}</td>
+              <td className="px-4 py-3 text-[var(--ink-soft)]">{row.intention || '—'}</td>
+              <td className="px-4 py-3 text-[var(--ink-soft)]">{row.experience || '—'}</td>
               <td className="px-4 py-3">
                 <select
                   value={row.status}

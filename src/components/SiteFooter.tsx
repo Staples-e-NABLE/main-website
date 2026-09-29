@@ -39,8 +39,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-[var(--rule)] px-5 py-5 text-center text-xs text-[var(--ink-soft)] md:px-8">
-        Staples High School e-NABLE is an independent student chapter and is not affiliated with or endorsed by
-        Enabling The Future / e-NABLE Web Central.
+        Staples High School e-NABLE is an independent student chapter of Enabling The Future.
       </div>
     </footer>
   )

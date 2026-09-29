@@ -4,6 +4,34 @@ import { SiteFooter } from '@/components/SiteFooter'
 
 import '../styles.css'
 
+const DEVICES = [
+  {
+    id: '1',
+    title: '',
+    recipientFirstName: 'Shipped to Egypt',
+    
+    src: '/Focus and Targets (1).webp',
+    imgClass: 'object-cover',
+  },
+  {
+    id: '2',
+    
+    recipientFirstName: 'Shipped within the U.S.',
+    
+    src: '/Focus and Targets.webp',
+    imgClass: 'object-cover',
+  },
+  {
+    id: '3',
+    title: '',
+    recipientFirstName: 'Prototype Hand',
+    
+    src: '/IMG_7481.webp',
+    // Rotates 90 deg and scales down so the entire photo fits in frame
+    imgClass: 'rotate-90 object-contain scale-160', 
+  },
+]
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -39,7 +67,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body className="grain">
         <div className="min-h-screen flex flex-col">
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            {children}
+
+            
+          </main>
           <SiteFooter />
         </div>
         <Scripts />
